@@ -15,34 +15,41 @@ import com.bridgelabz.employeepayrollapp.dto.EmployeePayrollDTO;
 
 @RestController
 @RequestMapping("/employeePayrollservice")
-/**
- * Controller : EmployeePayRollController
- * 
- * @author praja
- *
+/*@RequestMapping:Used to set the class level URL.
  */
 public class EmployeePayRollController {
-
+/*@RequestMapping:Used to take the URL for displaying message.
+ * return:message.
+ */
 	@RequestMapping(value = { "/get" })
 	public ResponseEntity<String> getEmployeePayrollData() {
 		return new ResponseEntity<String>("Get Call Success", HttpStatus.OK);
 	}
-
+/*@GetMapping:used to pass the URL With Id.
+ * return:pass the message for particular id.
+ */
 	@GetMapping("/get/{empId}")
 	public ResponseEntity<String> getEmployeePayrollData(@PathVariable("empId") int empId) {
 		return new ResponseEntity<String>("Get Call Success for Id: " + empId, HttpStatus.OK);
 	}
-
+/*@PostMapping:used to pass the URL
+ * @RequestBody:pass the object.
+ * return:created fields with the values.
+ */
 	@PostMapping("/create")
 	public ResponseEntity<String> getEmployeePayrollData(@RequestBody EmployeePayrollDTO empPayrollDTO) {
 		return new ResponseEntity<String>("Created Employee Payroll Data for: " + empPayrollDTO, HttpStatus.OK);
 	}
-
+/*@PutMapping:use to update the specified value.
+ * return:updated value.
+ */
 	@PutMapping("/update")
 	public ResponseEntity<String> updateEmployeePayrollData(@RequestBody EmployeePayrollDTO empPayrollDTO) {
 		return new ResponseEntity<String>("Updated Employee Payroll Data for: " + empPayrollDTO, HttpStatus.OK);
 	}
-
+/*DeleteMapping: use to pass the URL with id.
+ * return: delete the data of particular id.
+ */
 	@DeleteMapping("/delete/{empId}")
 	public ResponseEntity<String> deleteEmployeePayrollData(@PathVariable("empId") int empId) {
 		return new ResponseEntity<String>("Delete call success for id: " + empId, HttpStatus.OK);
